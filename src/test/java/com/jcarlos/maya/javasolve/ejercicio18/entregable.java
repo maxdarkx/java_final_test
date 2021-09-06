@@ -1,4 +1,4 @@
-package com.jcarlos.maya.javasolve;
+package com.jcarlos.maya.javasolve.ejercicio18;
 
 interface entregable {
     public void entregar();

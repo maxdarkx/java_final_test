@@ -1,4 +1,7 @@
-package com.jcarlos.maya.javasolve;
+package com.jcarlos.maya.javasolve.ejercicio18;
+
+import com.jcarlos.maya.javasolve.ejercicio18.serie;
+import com.jcarlos.maya.javasolve.ejercicio18.videojuego;
 
 import java.util.ArrayList;
 
@@ -48,8 +51,6 @@ public class javaSolve {
         System.out.println("Serie Mas Larga\n"+serieMasLarga+"\n");
 
     }
-
-
 
     public static void main(String[] args) {
         sol18Series();
