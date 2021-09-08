@@ -77,35 +77,29 @@ public class electrodomestico
 
         switch (getConsumoEnergetico())
         {
-            case 'A':
-                sumPrecio += 100;
-                break;
-            case 'B':
-                sumPrecio += 80;
-                break;
-            case 'C':
-                sumPrecio += 60;
-                break;
-            case 'D':
-                sumPrecio += 50;
-                break;
-            case 'E':
-                sumPrecio += 30;
-                break;
             case 'F':
                 sumPrecio += 10;
-                break;
+            case 'E':
+                sumPrecio += 20;
+            case 'D':
+                sumPrecio += 20;
+            case 'C':
+                sumPrecio += 10;
+            case 'B':
+                sumPrecio += 20;
+            case 'A':
+                sumPrecio += 20;
         }
 
-        if( peso > 0 && peso <= 19)
+        if(peso <= 19)
         {
             sumPrecio += 10;
         }
-        else if ( peso >= 20 && peso <= 49)
+        else if (peso <= 49)
         {
             sumPrecio += 50;
         }
-        else if ( peso >= 50 && peso <= 79)
+        else if (peso <= 79)
         {
             sumPrecio += 80;
         }

@@ -1,8 +1,5 @@
 package com.jcarlos.maya.javasolve.ejercicio18;
 
-import com.jcarlos.maya.javasolve.ejercicio18.serie;
-import com.jcarlos.maya.javasolve.ejercicio18.videojuego;
-
 import java.util.ArrayList;
 
 public class javaSolve {
