@@ -1,5 +1,7 @@
 package com.jcarlos.maya.javasolve.ejercicio17;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class electrodomestico
@@ -8,6 +10,8 @@ public class electrodomestico
     private String color;
     private char consumoEnergetico;
     private double peso;
+    private double precioTotal;
+
 
     private static final char consumoEnergeticoStandard = 'F';
     private static final double precioBaseStandard = 100;
@@ -72,24 +76,33 @@ public class electrodomestico
     }
     public double precioFinal()
     {
-        double sumPrecio = 0;
+        double sumPrecio = getPrecioBase();
         double peso = getPeso();
 
+        System.out.println(sumPrecio);
         switch (getConsumoEnergetico())
         {
             case 'F':
                 sumPrecio += 10;
+                break;
             case 'E':
-                sumPrecio += 20;
+                sumPrecio += 30;
+                break;
             case 'D':
-                sumPrecio += 20;
+                sumPrecio += 50;
+                break;
             case 'C':
-                sumPrecio += 10;
+                sumPrecio += 60;
+                break;
             case 'B':
-                sumPrecio += 20;
+                sumPrecio += 80;
+                break;
             case 'A':
-                sumPrecio += 20;
+                sumPrecio += 100;
+                break;
+
         }
+        System.out.println(sumPrecio);
 
         if(peso <= 19)
         {
@@ -107,6 +120,17 @@ public class electrodomestico
         {
             sumPrecio += 100;
         }
+        this.precioTotal = sumPrecio;
         return sumPrecio;
+    }
+
+    @Override
+    public String toString() {
+        return "Electrodomestico {" +
+                "precioBase=" + precioBase +
+                ", color='" + color + '\'' +
+                ", consumoEnergetico=" + consumoEnergetico +
+                ", peso=" + peso +
+                '}';
     }
 }

@@ -1,6 +1,10 @@
 package com.jcarlos.maya.javasolve;
 
 import com.jcarlos.maya.javasolve.ejercicio16.persona;
+import com.jcarlos.maya.javasolve.ejercicio17.electrodomestico;
+import com.jcarlos.maya.javasolve.ejercicio17.lavadora;
+import com.jcarlos.maya.javasolve.ejercicio17.television;
+import com.jcarlos.maya.javasolve.ejercicio18.javaSolve;
 import com.jcarlos.maya.javasolve.ejercicios1_15.*;
 import org.w3c.dom.ls.LSOutput;
 
@@ -392,28 +396,160 @@ public class facilitadora
 
     public static void prueba17()
     {
+        double sumaElectrodomesticos = 0;
+        double sumaTelevisores = 0;
+        double sumaLavadoras = 0;
 
+        ArrayList <electrodomestico> electrodomesticos = new ArrayList<>();
+
+        electrodomesticos.add(new lavadora(50));
+        electrodomesticos.add(new electrodomestico(150, 50));
+        electrodomesticos.add(new electrodomestico(110,"Blanco",'A', 20));
+        electrodomesticos.add(new electrodomestico(130,"Negro",'B', 30));
+        electrodomesticos.add(new electrodomestico(120,"Rojo",'A', 15));
+        electrodomesticos.add(new television(80,true));
+        electrodomesticos.add(new lavadora(45));
+        electrodomesticos.add(new television(90, 30));
+        electrodomesticos.add(new lavadora(200, 15));
+        electrodomesticos.add(new electrodomestico(10, 60));
+
+        for (electrodomestico item : electrodomesticos)
+        {
+            if(item instanceof television)
+            {
+                sumaTelevisores += item.precioFinal();
+            }
+            else if (item instanceof lavadora)
+            {
+                sumaLavadoras += item.precioFinal();
+            }
+            else if (item instanceof electrodomestico)
+            {
+                sumaElectrodomesticos += item.precioFinal();
+            }
+        }
+
+        System.out.print("La suma de todas las lavadoras fue ");
+        System.out.format("%.02f",sumaLavadoras);
+
+        System.out.print("\nLa suma de todos los televisores fue ");
+        System.out.format("%.02f",sumaTelevisores);
+
+        System.out.print("\nLa suma de todos los electrodomesticos fue ");
+        System.out.format("%.02f",sumaElectrodomesticos);
+
+        System.out.print("\nLa suma total fue ");
+        System.out.format("%.02f",sumaElectrodomesticos + sumaLavadoras + sumaTelevisores);
+
+        System.out.println("\n");
+
+        electrodomesticos.forEach(item->System.out.println(item.toString()+ "("+item.precioFinal()+")"));
     }
+    public static void prueba18()
+    {
+        javaSolve last= new javaSolve();
+        last.sol18Series();
+    }
+
+
     public static void main(String[] args)
     {
-        /*prueba1();
-        prueba2();
-        prueba3();
-        prueba4();
-        prueba5();
-        prueba6();
-        prueba7();
-        prueba8();
-        prueba9();
-        prueba10();
-        prueba11();
-        prueba12();
-        prueba13();
-        prueba14();
-        prueba15();
-        prueba16();*/
-        prueba17();
+       int opcion = 1;
+        String text;
+        Scanner key = new Scanner(System.in);
+        int inputNum;
 
+        do {
+            System.out.println("\n\n1. Mayor entre dos numeros predefinidos");
+            System.out.println("2.  Mayor entre dos numeros ingresados por teclado");
+            System.out.println("3.  Calcular el area del circulo");
+            System.out.println("4.  Calcular el area de un circulo ingresando el radio");
+            System.out.println("5.  Numeros impares y pares del 1 al 100");
+            System.out.println("6.  Numeros impares y pares con ciclo for");
+            System.out.println("7.  Numero mayor o igual que cero");
+            System.out.println("8.  Dia de la semana laborable");
+            System.out.println("9.  Cambiar las 'a' por 'e' de un String");
+            System.out.println("10. Eliminar los espacios de un String");
+            System.out.println("11. Encontrar la longitud de un String y cuantas vocales tiene");
+            System.out.println("12. Mostrar las diferencias entre dos Strings");
+            System.out.println("13. Fecha y hora actual (AAAA/MM/DD) (HH:MM:SS)");
+            System.out.println("14. Numero introducido hasta 1000 de 2 en 2");
+            System.out.println("15. Mostrar menu GESTION CINEMATOGRAFICA");
+            System.out.println("16. Clase persona");
+            System.out.println("17. Clase Electrodomestico, television, lavadora");
+            System.out.println("18. VideoTienda");
+            System.out.println("0. SALIR");
+            System.out.println("SELECCIONE SU OPCION ");
 
+            try {
+                opcion = Integer.parseInt(key.nextLine());
+                switch (opcion)
+                {
+                    case(0):
+                        System.out.println("Ha seleccionado la opcion para salir, hasta luego");
+                        break;
+
+                    case (1):
+                        prueba1();
+                        break;
+                    case (2):
+                        prueba2();
+                        break;
+                    case (3):
+                        prueba3();
+                        break;
+                    case (4):
+                        prueba4();
+                        break;
+                    case (5):
+                        prueba5();
+                        break;
+                    case (6):
+                        prueba6();
+                        break;
+                    case (7):
+                        prueba7();
+                        break;
+                    case (8):
+                        prueba8();
+                        break;
+                    case (9):
+                        prueba9();
+                        break;
+                    case (10):
+                        prueba10();
+                        break;
+                    case (11):
+                        prueba11();
+                        break;
+                    case (12):
+                        prueba12();
+                        break;
+                    case (13):
+                        prueba13();
+                        break;
+                    case (14):
+                        prueba14();
+                        break;
+                    case (15):
+                        prueba15();
+                        break;
+                    case (16):
+                        prueba16();
+                        break;
+                    case (17):
+                        prueba17();
+                        break;
+                    case (18):
+                        prueba18();
+                        break;
+                }
+            }
+            catch (NumberFormatException e)
+            {
+                System.out.println("Ha seleccionado una opcion incorrecta, intentelo nuevamente");
+                opcion = 1;
+            }
+        }while(opcion != 0);
     }
 }
