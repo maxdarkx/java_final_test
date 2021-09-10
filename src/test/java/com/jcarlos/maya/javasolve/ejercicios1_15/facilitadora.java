@@ -1,5 +1,6 @@
 package com.jcarlos.maya.javasolve.ejercicios1_15;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -205,6 +206,105 @@ public class facilitadora
         input = key.nextLine();
         cuentaVocales.contadorVocales(input);
     }
+    public static  void prueba12()
+    {
+        int tam = 0;
+        String text = "";
+        String symbol= "";
+        ejercicio12 comparaPalabras = new ejercicio12();
+        Scanner key = new Scanner(System.in);
+        String input, input2;
+        System.out.println("Ingrese la primera palabra a comparar: ");
+        input = key.nextLine();
+        System.out.println("Ingrese la segunda palabra a comparar: ");
+        input2 = key.nextLine();
+        if(!comparaPalabras.wordEqual(input, input2))
+        {
+            if (input.length() >= input2.length()) {
+                tam = input.length();
+            }
+            else if (input.length() < input2.length()){
+                tam = input2.length();
+            }
+            for(int i = 0; i<tam; i++)
+            {
+                symbol = input.charAt(i)==input2.charAt(i) ? " == ":" != ";
+                text += input.charAt(i)+symbol;
+
+                if(i < input2.length())
+                {
+                    text += input2.charAt(i) + "\n";
+                }
+                else if(i > input2.length())
+                {
+                    text += "\n";
+                }
+            }
+
+            System.out.println("Las palabras son distintas");
+            System.out.println("Comparacion caracter a caracter");
+            System.out.println(text);
+        }
+        else
+        {
+            System.out.println("Las palabras ingresadas son iguales");
+        }
+    }
+
+    public static void prueba13()
+    {
+        ejercicio13 fechaHora= new ejercicio13();
+        System.out.println("La fecha y hora actuales son:");
+        System.out.println(fechaHora.retornaFechaHora());
+    }
+    public static void prueba14()
+    {
+        ejercicio14 seq = new ejercicio14();
+        ArrayList<Integer> numList;
+        Scanner key = new Scanner(System.in);
+        String inputNum;
+        try {
+            System.out.println("Ingrese el numero desde el que comenzara la secuencia");
+            inputNum = key.nextLine();
+            numList = seq.calculaSecuencia(Integer.parseInt(inputNum));
+            System.out.println(numList);
+        }
+        catch (NumberFormatException e)
+        {
+            System.out.println("Ha ingresado un dato incorrecto, intentelo nuevamente");
+        }
+    }
+    public static void prueba15()
+    {
+        String text;
+        Scanner key = new Scanner(System.in);
+        int inputNum;
+
+        do{
+            text = "****** GESTION CINEMATOGRÁFICA ********\n";
+            text += "1-NUEVO ACTOR\n";
+            text += "2-BUSCAR ACTOR\n";
+            text += "3-ELIMINAR ACTOR\n";
+            text += "4-MODIFICAR ACTOR\n";
+            text += "5-VER TODOS LOS ACTORES\n";
+            text += "6- VER PELICULAS DE LOS ACTORES\n";
+            text += "7-VER CATEGORIA DE LAS PELICULAS DE LOS ACTORES\n";
+            text += "8-SALIR\n";
+            text += "INGRESE SU OPCION\n";
+            System.out.print(text);
+            try {
+                inputNum = Integer.parseInt(key.nextLine());
+                if(inputNum >8 || inputNum < 1)
+                {
+                    System.out.println("OPCION INCORRECTA");
+                }
+            }
+            catch(NumberFormatException e) {
+                inputNum = 0;
+                System.out.println("Ha ingresado un valor incorrecto, intentelo de nuevo");
+            }
+        }while(inputNum != 8);
+    }
 
     public static void main(String[] args)
     {
@@ -218,6 +318,12 @@ public class facilitadora
         prueba8();
         prueba9();
         prueba10();
-        prueba11();*/
+        prueba11();
+        prueba12();
+        prueba13();
+        prueba14();
+        prueba15();*/
+
+
     }
 }
