@@ -1,7 +1,12 @@
-package com.jcarlos.maya.javasolve.ejercicios1_15;
+package com.jcarlos.maya.javasolve;
+
+import com.jcarlos.maya.javasolve.ejercicio16.persona;
+import com.jcarlos.maya.javasolve.ejercicios1_15.*;
+import org.w3c.dom.ls.LSOutput;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class facilitadora
@@ -306,6 +311,89 @@ public class facilitadora
         }while(inputNum != 8);
     }
 
+    public static void prueba16()
+    {
+        persona completo;
+        persona parcial;
+        persona porDefecto;
+        ArrayList <persona> datos = new ArrayList<>();
+
+        Scanner key = new Scanner(System.in);
+        String nombre = "";
+        int edad = 0;
+        char sexo = 'H';
+        double peso = 0;
+        double altura = 0;
+        try {
+            System.out.println("Ingrese el nombre:");
+            nombre = key.nextLine().toUpperCase(Locale.ROOT);
+            System.out.println("Ingrese su edad:");
+            edad = Integer.parseInt(key.nextLine());
+            System.out.println("Ingrese su sexo ( H, M ):");
+            sexo = key.nextLine().toUpperCase().charAt(0);
+            System.out.println("Ingrese su peso:");
+            peso = Double.parseDouble(key.nextLine());
+            System.out.println("Ingrese su altura");
+            altura = Double.parseDouble(key.nextLine());
+        }
+        catch (NumberFormatException e)
+        {
+            System.out.println("Ha ingresado un valor incorrecto, intentelo de nuevo");
+        }
+        completo = new persona(nombre, edad, "0", sexo, peso, altura);
+        parcial = new persona(nombre, edad, sexo);
+        porDefecto = new persona();
+        porDefecto.setNombre("JOHN DOE");
+        porDefecto.setEdad(25);
+        porDefecto.setAltura(1.75);
+        porDefecto.setSexo('H');
+        porDefecto.setPeso(80);
+
+        datos.add(completo);
+        datos.add(parcial);
+        datos.add(porDefecto);
+
+        datos.forEach(persona::generaDNI);
+
+        for (persona dato : datos) {
+            int i = dato.calcularIMC();
+
+            System.out.print(dato.getNombre());
+            if (i == 1) {
+                System.out.println(" tiene Sobrepeso");
+            }
+            else if (i == 0) {
+                System.out.println(" esta cerca de su peso ideal");
+            }
+            else if (i == -1)
+            {
+                System.out.println(" esta muy por debajo de su peso ideal");
+            }
+        }
+
+        System.out.println();
+
+        for(persona dato : datos)
+        {
+            String text;
+            System.out.print(dato.getNombre());
+            text = dato.esMayorDeEdad()?" es mayor de edad":" es menor de edad";
+            System.out.println(text);
+        }
+
+        System.out.println();
+
+        for(persona dato : datos)
+        {
+            System.out.println(dato.toString());
+        }
+
+    }
+
+    public static void prueba17()
+    {
+
+    }
     public static void main(String[] args)
     {
         /*prueba1();
@@ -322,7 +410,9 @@ public class facilitadora
         prueba12();
         prueba13();
         prueba14();
-        prueba15();*/
+        prueba15();
+        prueba16();*/
+        prueba17();
 
 
     }

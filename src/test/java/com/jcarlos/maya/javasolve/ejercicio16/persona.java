@@ -17,6 +17,7 @@ public class persona {
         this.sexo = 'H';
         this.peso = 0;
         this.altura = 0;
+
     }
 
     public persona(String nombre, int edad, char sexo)
@@ -24,9 +25,14 @@ public class persona {
         this.nombre = nombre;
         this.edad = edad;
         this.DNI = "";
-        this.sexo = sexo;
+
+        this.sexo = comprobarSexo(sexo);
         this.peso = 0;
         this.altura = 0;
+    }
+
+    public String getNombre() {
+        return nombre;
     }
 
     public persona(String nombre, int edad, String cedula, char sexo, double peso, double altura)
@@ -34,15 +40,17 @@ public class persona {
         this.nombre = nombre;
         this.edad = edad;
         this.DNI = "";
-        this.sexo = sexo;
-        this.peso = 0;
-        this.altura = 0;
+        this.sexo = comprobarSexo(sexo);
+        this.peso = peso;
+        this.altura = altura;
     }
 
     public int calcularIMC()
     {
-
-        double calculoIMC = this.peso/Math.pow(this.altura,2);
+        double calculoIMC = 0;
+        if(this.altura > 0) {
+            calculoIMC = this.peso / Math.pow(this.altura, 2);
+        }
         int returnValue = 2;
 
         if (calculoIMC < 20)
@@ -76,19 +84,31 @@ public class persona {
     @Override
     public String toString()
     {
-        return "nombre: " + nombre +
-                ", edad: " + edad +
+        return "Nombre: " + nombre +
+                ", Edad: " + edad +
                 ", DNI: " + DNI +
-                ", sexo: " + sexo +
-                ", peso: " + peso +
-                ", altura: " + altura;
+                ", Sexo: " + sexo +
+                ", Peso: " + peso +
+                ", Altura: " + altura;
 
     }
 
     public void generaDNI()
     {
-        long numeroDNI = (long)(1000000000 * Math.random());
-        this.DNI = String.valueOf(numeroDNI);
+        int resto;
+        String DNI;
+        char letra[]={'T','R','W','A','G','M','Y','F','P','D','X','B','N','J','Z','S','Q','V','H','L','C','K','E'};
+        int numeroDNI = (int)(10000000 * Math.random());
+        resto = numeroDNI % 23;
+        DNI = Integer.toString(numeroDNI)+letra[resto];
+        this.DNI = DNI;
+    }
+
+    private char comprobarSexo(char sexo)
+    {
+        if (sexo == 'M' || sexo == 'H')
+            return sexo;
+        return 'H';
     }
 
     public void setNombre(String nombre) {
