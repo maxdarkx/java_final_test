@@ -1,10 +1,9 @@
-package com.jcarlos.maya.javasolve.ejercicios1_16;
+package com.jcarlos.maya.javasolve.ejercicios1_15;
 
 import java.util.List;
-import java.util.Locale;
 import java.util.Scanner;
 
-public class test2
+public class facilitadora
 {
     public static void prueba1()
     {
@@ -172,6 +171,41 @@ public class test2
             System.out.println("La palabra ingresada no es un dia de la semana");
         }
     }
+
+    public static void prueba9()
+    {
+        ejercicio9 cambiaA = new ejercicio9();
+        Scanner key = new Scanner(System.in);
+        String input;
+        System.out.println("Ingrese la continuacion de la siguiente frase:\n La sonrisa sera la mejor arma contra la tristeza");
+        input = key.nextLine();
+        input = cambiaA.reemplazaA(input);
+        System.out.println("la frase compuesta quedo de la siguiente manera:");
+        System.out.println(input);
+    }
+
+    public static void prueba10()
+    {
+        ejercicio10 quitaEspacios = new ejercicio10();
+        Scanner key = new Scanner(System.in);
+        String input;
+
+        System.out.println("Ingrese la frase a procesar:");
+        input = key.nextLine();
+        input = quitaEspacios.spaceRemover(input);
+        System.out.println("La frase procesada es:\n"+input);
+    }
+
+    public static void prueba11()
+    {   ejercicio11 cuentaVocales = new ejercicio11();
+        Scanner key = new Scanner(System.in);
+        String input;
+
+        System.out.println("Ingrese la frase a procesar:");
+        input = key.nextLine();
+        cuentaVocales.contadorVocales(input);
+    }
+
     public static void main(String[] args)
     {
         /*prueba1();
@@ -181,6 +215,9 @@ public class test2
         prueba5();
         prueba6();
         prueba7();
-        prueba8();*/
+        prueba8();
+        prueba9();
+        prueba10();
+        prueba11();*/
     }
 }

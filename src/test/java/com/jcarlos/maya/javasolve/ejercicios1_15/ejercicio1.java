@@ -1,4 +1,4 @@
-package com.jcarlos.maya.javasolve.ejercicios1_16;
+package com.jcarlos.maya.javasolve.ejercicios1_15;
 /*Declara 2 variables numéricas (con el valor que desees), he indica cual es mayor de los dos.
  Si son iguales indicarlo también. Ve cambiando los valores para comprobar que funciona.*/
 
